@@ -2,7 +2,7 @@
 function capitalize(word) {
   let newWord = '';
   for (let i = 0; i < word.length; i++) {
-    if (word[i] === word[0]) {
+    if (i === 0) {
       newWord += word[i].toUpperCase();
     } else {
       newWord += word[i].toLowerCase();
