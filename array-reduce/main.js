@@ -37,6 +37,6 @@ const balance = account.reduce((total, current) => {
 
 console.log(balance);
 
-const composite = traits.reduce((pokemon, current) => Object.assign(pokemon, current));
+const composite = traits.reduce((pokemon, current) => Object.assign(pokemon, current), {});
 
 console.log(composite);
