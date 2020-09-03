@@ -2,20 +2,15 @@
 function pick(source, keys) {
   const newObj = {};
   for (const prop in source) {
-    for (let i = 0; i < keys.length; i++) {
-      if (prop === keys[i]) {
-        if (source[prop] !== undefined) {
-          newObj[prop] = source[prop];
-        }
-      }
+    if (keys.includes(prop) && source[prop] !== undefined) {
+      newObj[prop] = source[prop];
     }
   }
   return newObj;
 }
 
-// declare a variable initialized with a empty object literal X
-// loop through the keys array X
-// within the loop, check if the keys array at the current index's value matches any property on the source obj
-// if true, add the property and it's value to the new obj
-// finish the loop
-// return the variable storing the obj
+// define a variable with an empty object literal
+// create a for in loop
+// inside the loop, check if the current property is included in the keys array and check if the property is not undefined
+// if true, assign the value of the property to the new obj and use the source property as the new property
+// When the for loop ends, return the new obj
