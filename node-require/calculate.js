@@ -4,22 +4,17 @@ const subtract = require('./subtract');
 const multiply = require('./multiply');
 const divide = require('./divide');
 
-process.argv.add = add(process.argv[2], process.argv[4]);
-process.argv.subtract = subtract(process.argv[2], process.argv[4]);
-process.argv.multiply = multiply(process.argv[2], process.argv[4]);
-process.argv.divide = divide(process.argv[2], process.argv[4]);
-
 switch (process.argv[3]) {
   case 'plus':
-    console.log(process.argv.add);
+    console.log(add(process.argv[2], process.argv[4]));
     break;
   case 'minus':
-    console.log(process.argv.subtract);
+    console.log(subtract(process.argv[2], process.argv[4]));
     break;
   case 'times':
-    console.log(process.argv.multiply);
+    console.log(multiply(process.argv[2], process.argv[4]));
     break;
   case 'over':
-    console.log(process.argv.divide);
+    console.log(divide(process.argv[2], process.argv[4]));
     break;
 }
