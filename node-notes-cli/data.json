@@ -1,10 +1,8 @@
 {
-  "nextId": 6,
+  "nextId": 8,
   "notes": {
-    "1": "Buy a boat",
-    "2": "Get sleep",
-    "3": "eat",
-    "4": "Workout",
-    "5": "add delete"
+    "4": "Learn node",
+    "5": "Go to gym",
+    "7": "Watch Tv"
   }
 }
