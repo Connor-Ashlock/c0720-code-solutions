@@ -5,7 +5,7 @@ let nextId = 1;
 
 class Player {
   constructor() {
-    this.hand = {};
+    this.hand = [];
   }
 }
 
@@ -40,8 +40,33 @@ const createDeck = () => {
 
 const shuffleDeck = deck => _.shuffle(deck);
 
+const dealCards = (deck, players) => {
+  for (const player in players) {
+    players[player].hand = deck.splice(0, 2);
+  }
+  return players;
+};
+
+const determineScore = players => {
+  let points = 0;
+  for (const player in players) {
+    for (let i = 0; i < players[player].hand.length; i++) {
+      if (players[player].hand[i] === 'ace') {
+        points += 11;
+      } else if (players[player].hand[i].rank === 'king' || players[player].hand[i].rank === 'queen' || players[player].hand[i].rank === 'jack') {
+        points += 10;
+      } else {
+        points += Number(players[player].hand[i].rank);
+      }
+    }
+    players[player].points = points;
+    points = 0;
+  }
+  return players;
+};
+
 const players = createPlayers();
 const deck = shuffleDeck(createDeck());
-
-console.log(deck);
-console.log(players);
+const hand = dealCards(deck, players);
+const playerScores = determineScore(hand);
+console.log(playerScores);
