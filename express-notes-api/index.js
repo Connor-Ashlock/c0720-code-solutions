@@ -76,6 +76,36 @@ app.delete('/api/notes/:id', (req, res) => {
   }
 });
 
+app.put('/api/notes/:id', jsonMiddleware, (req, res) => {
+  let isIdFound = false;
+  if (!Number(req.params.id) || req.params.id < 1) {
+    res.status(400).json({ error: 'id must be a positive integer' });
+  } else if (req.body.content) {
+    for (let i = 0; i < notesArr.length; i++) {
+      if (Number(req.params.id) === notesArr[i].id) {
+        notesArr[i].content = req.body.content;
+        notes[req.params.id].content = req.body.content;
+        const newData = JSON.stringify(data, null, 2);
+        isIdFound = true;
+        fs.writeFile('data.json', newData, err => {
+          if (err) {
+            res.status(500).json({ error: 'An unexpected error occurred.' });
+            console.error(err);
+            process.exit(1);
+          } else {
+            res.status(201).json(notesArr[i]);
+          }
+        });
+      }
+    }
+    if (!isIdFound) {
+      res.status(404).json({ error: `cannot find note with id ${req.params.id}` });
+    }
+  } else {
+    res.status(400).json({ error: 'content is a required field' });
+  }
+});
+
 app.listen(3000, () => {
   console.log('server is listening');
 });
