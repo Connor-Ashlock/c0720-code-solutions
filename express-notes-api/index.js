@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 const express = require('express');
 const data = require('./data');
+const fs = require('fs');
 const app = express();
+const jsonMiddleware = express.json();
 const notes = data.notes;
 const notesArr = [];
 
@@ -23,6 +25,26 @@ app.get('/api/notes/:id', (req, res) => {
     if (!isIdFound) {
       res.status(404).json({ error: `cannot find note with id ${req.params.id}` });
     }
+  }
+});
+
+app.post('/api/notes', jsonMiddleware, (req, res) => {
+  if (req.body.content) {
+    req.body.id = data.nextId;
+    notesArr.push(req.body);
+    notes[data.nextId++] = req.body;
+    const newData = JSON.stringify(data, null, 2);
+    fs.writeFile('data.json', newData, err => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+        console.error(err);
+        process.exit(1);
+      } else {
+        res.status(201).json(req.body);
+      }
+    });
+  } else {
+    res.status(400).json({ error: 'content is a required field' });
   }
 });
 
