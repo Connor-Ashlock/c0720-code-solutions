@@ -1,0 +1,44 @@
+.on,
+.off {
+  display: flex;
+  border-radius: 60px;
+  border: 1px solid black;
+  width: 100px;
+  height: 45px;
+  align-items: center;
+}
+
+.off {
+  background-color: gray;
+}
+
+.on {
+  background-color: green;
+  justify-content: flex-end;
+}
+
+.switch {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 60px;
+  width: 40px;
+  height: 40px;
+}
+
+.switch:hover {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 45px;
+}
+
+.state {
+  margin: 0 0 0 25px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
