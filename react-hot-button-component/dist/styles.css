@@ -1,0 +1,29 @@
+.dark-purp {
+  background-color: darkslateblue;
+  color: white;
+}
+
+.light-purp {
+  background-color: rgb(112, 96, 214);
+  color: white;
+}
+
+.light-red {
+  background-color: rgb(238, 92, 92);
+  color: white;
+}
+
+.light-org {
+  background-color: lightsalmon;
+  color: black;
+}
+
+.yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.white {
+  background-color: white;
+  color: black;
+}
