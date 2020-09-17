@@ -18,12 +18,15 @@ class AppDrawer extends React.Component {
       );
     }
     return (
-      <div className="row">
-        <h1 className="menu" onClick={this.handleClick}>Menu</h1>
-        <p onClick={this.handleClick}>About</p>
-        <p onClick={this.handleClick}>Get Started</p>
-        <p onClick={this.handleClick}>Sign In</p>
-      </div>
+      <>
+        <div className="sidebar">
+          <h1 className="menu" onClick={this.handleClick}>Menu</h1>
+          <p onClick={this.handleClick}>About</p>
+          <p onClick={this.handleClick}>Get Started</p>
+          <p onClick={this.handleClick}>Sign In</p>
+        </div>
+        <div className="shade" onClick={this.handleClick}></div>
+      </>
     );
   }
 }
