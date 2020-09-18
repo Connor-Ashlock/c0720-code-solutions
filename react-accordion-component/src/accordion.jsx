@@ -14,21 +14,30 @@ class Accordion extends React.Component {
       : this.setState({ clickedTitle: event.target.id });
   }
 
-  createDescription(id) {
-    for (let i = 0; i < this.props.shows.length; i++) {
-      if (this.props.shows[i][id]) return <p className="description">{this.props.shows[i][id]}</p>;
-    }
+  createDescription(description) {
+    return <p className="description">{ description }</p>;
   }
 
   createTitle() {
-    const frag = <></>;
-    frag.props.children = [];
-    for (let i = 0; i < this.props.shows.length; i++) {
-      Object.keys(this.props.shows[i])[0] === this.state.clickedTitle
-        ? frag.props.children.push(<h1 className="title" id={Object.keys(this.props.shows[i])} onClick={this.handleClick}>{Object.keys(this.props.shows[i])}</h1>, this.createDescription(this.state.clickedTitle))
-        : frag.props.children.push(<h1 className="title" id={Object.keys(this.props.shows[i])} onClick={this.handleClick}>{Object.keys(this.props.shows[i])}</h1>);
-    }
-    return frag;
+    const children = this.props.shows.map(show => {
+      const showTitle = Object.keys(show)[0];
+      if (showTitle === this.state.clickedTitle) {
+        const description = this.createDescription(show[this.state.clickedTitle]);
+        return (
+          <>
+            <h1 className="title" id={ showTitle } onClick={ this.handleClick }>{ showTitle }</h1>
+            { description }
+          </>
+        );
+      } else {
+        return <h1 className="title" id={ showTitle } onClick={ this.handleClick }>{ showTitle }</h1>;
+      }
+    });
+    return (
+      <>
+        { children }
+      </>
+    );
   }
 
   render() {
