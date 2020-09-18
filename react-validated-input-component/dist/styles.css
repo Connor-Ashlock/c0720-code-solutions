@@ -1,0 +1,26 @@
+label {
+  max-width: 250px;
+  display: block;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 250px;
+  font-size: 1rem;
+}
+
+.incorrect,
+.fa-times {
+  color: red;
+}
+
+.fa-check {
+  color: green;
+}
+
+.fa-times,
+.fa-check {
+  margin-left: 5px;
+  font-size: 1rem;
+}
