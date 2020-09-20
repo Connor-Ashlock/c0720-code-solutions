@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 648px;
+  border: 4px solid black;
+  padding-top: 50px;
+  position: relative;
+}
+
+img {
+  max-width: 40%;
+  height: 466px;
+}
+
+i {
+  font-size: 10rem;
+}
+
+.fa-caret-right {
+  position: absolute;
+  right: 90px;
+}
+
+.fa-caret-left {
+  position: absolute;
+  left: 90px;
+}
+
+.dot-fill {
+  background: black;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 50px 0;
+}
+
+.dot-fill,
+.dot-hollow {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  margin: 0 20px;
+}
+
+i:hover,
+.dot-hollow:hover,
+.dot-fill:hover {
+  cursor: pointer;
+}
