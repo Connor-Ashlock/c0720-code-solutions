@@ -49,8 +49,8 @@ class Carousel extends React.Component {
   render() {
     const index = this.state.currentCharacterIndex;
     const characters = this.props.characters;
-    const characterName = Object.keys(characters[index])[0];
-    const url = characters[index][characterName];
+    const characterName = characters[index].name;
+    const url = characters[index].imageUrl;
     return (
       <>
         <LeftArrow handleLeftArrowClick={this.handleLeftArrowClick}/>
@@ -75,9 +75,8 @@ function Character(props) {
 }
 
 function Dots(props) {
-  const children = props.characters.map((characterObject, index) => {
-    const characterName = Object.keys(characterObject)[0];
-    return <div key={characterName} id={index} className={index === props.currentCharacterIndex ? 'dot-fill' : 'dot-hollow'} onClick={props.handleDotClick}></div>;
+  const children = props.characters.map((character, index) => {
+    return <div key={character.name} id={index} className={index === props.currentCharacterIndex ? 'dot-fill' : 'dot-hollow'} onClick={props.handleDotClick}></div>;
   });
   return (
     <div className="dots">

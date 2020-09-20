@@ -4,16 +4,20 @@ import Carousel from './carousel';
 
 const characters = [
   {
-    greninja: 'https://www.smashbros.com/assets_v2/img/fighter/greninja/main8.png'
+    name: 'Greninja',
+    imageUrl: 'https://www.smashbros.com/assets_v2/img/fighter/greninja/main8.png'
   },
   {
-    mewtwo: 'https://www.smashbros.com/assets_v2/img/fighter/mewtwo/main8.png'
+    name: 'Mewtwo',
+    imageUrl: 'https://www.smashbros.com/assets_v2/img/fighter/mewtwo/main8.png'
   },
   {
-    fox: 'https://www.smashbros.com/assets_v2/img/fighter/fox/main.png'
+    name: 'Fox',
+    imageUrl: 'https://www.smashbros.com/assets_v2/img/fighter/fox/main.png'
   },
   {
-    samus: 'https://www.smashbros.com/assets_v2/img/fighter/samus/main8.png'
+    name: 'Samus',
+    imageUrl: 'https://www.smashbros.com/assets_v2/img/fighter/samus/main8.png'
   }
 ];
 
