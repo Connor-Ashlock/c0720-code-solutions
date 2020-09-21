@@ -32,8 +32,8 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.state.todos.push(data);
-        this.setState({ todos: this.state.todos });
+        const newData = this.state.todos.concat(data);
+        this.setState({ todos: newData });
       })
       .catch(err => console.error(err));
   }
@@ -49,8 +49,9 @@ class App extends React.Component {
         })
           .then(res => res.json())
           .then(data => {
-            this.state.todos.splice(i, 1, data);
-            this.setState({ todos: this.state.todos });
+            const newData = this.state.todos.slice();
+            newData.splice(i, 1, data);
+            this.setState({ todos: newData });
           })
           .catch(err => console.error(err));
       }
