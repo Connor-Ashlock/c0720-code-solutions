@@ -2,4 +2,5 @@ select "filmId",
        "title",
        "description",
        "length"
-  from "films";
+  from "films"
+ where "rating" = 'R';
